@@ -6,7 +6,7 @@
   margin: 0;
   top: 50%;
   height: 30vh;
-  background-color: yellow;
+  /* background-color: yellow; */
 
   display: flex;
   flex-direction: column;
@@ -15,8 +15,10 @@
   font-size: calc(10px + 2vmin);
 }
 
-footer {
-  background-color: red;
+.App-Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .App-Header {
