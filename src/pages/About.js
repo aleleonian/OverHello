@@ -1,0 +1,13 @@
+import { Link } from 'react-router-dom';
+
+const About = () => {
+    return (
+        <div>
+            <h1>About</h1>
+            <Link to="/">Back home</Link>
+
+        </div>
+    )
+};
+
+export default About;
