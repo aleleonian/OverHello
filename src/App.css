@@ -7,6 +7,7 @@
   top: 50%;
   height: 30vh;
   background-color: yellow;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +27,6 @@ footer {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   height: 30vh;
-  background-color: blue;
 }
 
 .App-link {

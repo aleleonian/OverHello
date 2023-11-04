@@ -1,4 +1,8 @@
-import React from "react";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 export function Body() {
     function processInput() {
@@ -7,8 +11,11 @@ export function Body() {
     }
     return (
         <div className="App-Body">
-            <input type="text" id="userName" placeholder="Enter your name" />
-            <button onClick={processInput}>submit</button>
+            <Box component="form">
+                <TextField id="outlined-basic" label="Enter name" variant="outlined" />
+                <br />
+                <Button variant="contained" onClick={processInput} endIcon={<SendIcon />}>submit</Button>
+            </Box>
         </div>
     )
 }
