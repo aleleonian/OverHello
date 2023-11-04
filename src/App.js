@@ -1,15 +1,23 @@
 import './App.css';
-import { Header } from './Components/Header';
-import { Body } from './Components/Body';
 import { Footer } from './Components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Footer />
+      </div>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
