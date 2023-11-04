@@ -9,7 +9,7 @@ export function Header() {
                 <Typography variant="h3" gutterBottom>
                     Welcome to OverHello
                 </Typography>
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                     The world's most over engineered Hello World App
                 </Typography>
             </Box>
