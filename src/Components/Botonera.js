@@ -12,8 +12,6 @@ export function Botonera() {
     const navigate = useNavigate();
 
     function handleChange(event, newValue) {
-        console.log(event);
-        console.log(newValue);
         setValue(newValue);
         navigate(`/${newValue}`);
 

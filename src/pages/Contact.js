@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Botonera} from '../Components/Botonera';
 
 const Contact = () => {
     return (
         <div>
             <h1>Contact Me</h1>
-            <Link to="/">Back home</Link>
-
+            <Botonera />
         </div>
     )
 };
