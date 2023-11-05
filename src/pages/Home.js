@@ -1,13 +1,13 @@
 import React from 'react';
-import { Body } from '../Components/Body';
-import { Header } from '../Components/Header';
+import { HomeBody } from '../Components/Home/HomeBody';
+import { HomeHeader } from '../Components/Home/HomeHeader';
 import { Botonera} from '../Components/Botonera';
 
 const Home = () => {
     return (
         <div>
-            <Header />
-            <Body />
+            <HomeHeader />
+            <HomeBody />
             <Botonera />
         </div>
     )
