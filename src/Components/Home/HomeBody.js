@@ -26,6 +26,13 @@ function HomeBodyContent() {
             setAlert(true)
         }
         else {
+            let validNameRegex = /^[a-zA-Z\s]+$/;
+            if (!validNameRegex.test(name)) {
+                setAlertMessage("Names cannot contain numbers or weird characters.");
+                setAlert(true)
+                return;
+            }
+
             console.log(process.env.REACT_APP_BACKEND_SERVER);
             var jsonData = {
                 "name": name
