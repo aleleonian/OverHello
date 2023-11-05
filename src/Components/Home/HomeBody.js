@@ -9,17 +9,20 @@ import { useNavigate } from "react-router-dom";
 
 function HomeBodyBody() {
 
-    const [emptyUsernameAlert, setAlert] = React.useState(false);
+    const [errorAlert, setAlert] = React.useState(false);
+    const [alertMessage, setAlertMessage] = React.useState("");
+
     const navigate = useNavigate();
 
     function handleTextInputChange() {
-        if (emptyUsernameAlert) {
+        if (errorAlert) {
             setAlert(false);
         }
     }
     function processInput() {
         const name = document.getElementById('userName').value;
         if (!name || name.length == 0) {
+            setAlertMessage("You must input something!");
             setAlert(true)
         }
         else {
@@ -47,7 +50,8 @@ function HomeBodyBody() {
                     return (data ? JSON.parse(data) : {})
                 })
                 .catch((err) => {
-                    console.log("error!->", err.message);
+                    setAlertMessage(err.message);
+                    setAlert(true)
                 });
         }
     }
@@ -62,7 +66,7 @@ function HomeBodyBody() {
                 </Box>
                 <Button variant="contained" onClick={processInput}>submit</Button>
                 <br />
-                {emptyUsernameAlert ? <MyAlert severity="error" message="You must input something!" /> : ""}
+                {errorAlert ? <MyAlert severity="error" message={alertMessage} /> : ""}
 
             </FormControl>
 
