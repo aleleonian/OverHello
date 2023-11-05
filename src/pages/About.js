@@ -1,9 +1,12 @@
-import { Botonera} from '../Components/Botonera';
+import { Botonera } from '../Components/Botonera';
+import { AboutHeader } from '../Components/About/AboutHeader';
+import { AboutBody } from '../Components/About/AboutBody';
 
 const About = () => {
     return (
         <div className='App-About'>
-            <h1>About</h1>
+            <AboutHeader />
+            <AboutBody />
             <Botonera />
         </div>
     )

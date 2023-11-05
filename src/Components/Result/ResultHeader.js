@@ -3,20 +3,17 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Header } from '../Header';
 
-function HomeHeaderBody() {
+function ResultHeaderBody() {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-                Welcome to OverHello
-            </Typography>
-            <Typography variant="h5" gutterBottom>
-                The world's most over engineered Hello World App
+                Results
             </Typography>
         </Box>
     )
 }
-export function HomeHeader() {
+export function ResultHeader() {
     return (
-        <Header headerBody={<HomeHeaderBody />} />
+        <Header headerBody={<ResultHeaderBody />} />
     )
 }
