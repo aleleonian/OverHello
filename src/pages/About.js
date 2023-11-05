@@ -1,4 +1,4 @@
-import { Botonera} from '../../Botonera';
+import { Botonera} from '../Components/Botonera';
 
 const About = () => {
     return (
