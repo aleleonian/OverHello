@@ -1,4 +1,4 @@
-import { Botonera } from '../Components/Botonera';
+import { Botonera } from '../../Botonera';
 import { useLocation } from 'react-router-dom';
 
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Body } from '../Components/Body';
-import { Header } from '../Components/Header';
-import { Botonera} from '../Components/Botonera';
+import { Body } from '../../Body';
+import { HomeHeader } from '../HomeHeader';
+import { Botonera} from '../../Botonera';
 
 const Home = () => {
     return (
         <div>
-            <Header />
+            <HomeHeader />
             <Body />
             <Botonera />
         </div>

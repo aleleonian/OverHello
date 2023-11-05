@@ -1,8 +1,8 @@
-import { Botonera} from '../Components/Botonera';
+import { Botonera} from '../../Botonera';
 
 const About = () => {
     return (
-        <div>
+        <div className='App-About'>
             <h1>About</h1>
             <Botonera />
         </div>
