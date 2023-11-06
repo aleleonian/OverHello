@@ -10,8 +10,6 @@ import CallIcon from '@mui/icons-material/Call';
 export function Botonera({ page }) {
     const [value, setValue] = React.useState(0);
     const navigate = useNavigate();
-
-    console.log("page=>", page);
     function handleChange(event, newValue) {
         setValue(newValue);
         navigate(`/${newValue}`);

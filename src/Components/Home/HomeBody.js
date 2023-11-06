@@ -26,7 +26,7 @@ function HomeBodyContent() {
             setAlert(true)
         }
         else {
-            let validNameRegex = /^[a-zA-Z\s]+$/;
+            let validNameRegex = /^[a-zA-Zéíóú\s]+$/;
             if (!validNameRegex.test(name)) {
                 setAlertMessage("Names cannot contain numbers or weird characters.");
                 setAlert(true)
@@ -69,7 +69,7 @@ function HomeBodyContent() {
         <div className="App-Body">
             <FormControl>
                 <Box width={350}>
-                    <TextField style={{ height }} onChange={handleTextInputChange} fullWidth rows={30} id="userName" size="big" label="Enter name" variant="outlined" />
+                    <TextField style={{ height }} onChange={handleTextInputChange} fullWidth rows={30} id="userName" size="big" label="Enter your first name" variant="outlined" />
                 </Box>
                 <Button variant="contained" onClick={processInput}>submit</Button>
                 <br />
