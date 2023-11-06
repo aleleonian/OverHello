@@ -11,9 +11,9 @@ const Result = () => {
 
     return (
         <div>
-            <ResultHeader />
-            <ResultBody data={location.state.data}/>
-            <Botonera />
+            <ResultHeader data={location.state.data} />
+            <ResultBody data={location.state.data} />
+            <Botonera page="Result" />
         </div>
     )
 };

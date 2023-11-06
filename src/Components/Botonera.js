@@ -7,10 +7,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CallIcon from '@mui/icons-material/Call';
 
-export function Botonera({page}) {
+export function Botonera({ page }) {
     const [value, setValue] = React.useState(0);
     const navigate = useNavigate();
 
+    console.log("page=>", page);
     function handleChange(event, newValue) {
         setValue(newValue);
         navigate(`/${newValue}`);
@@ -24,9 +25,9 @@ export function Botonera({page}) {
                     value={value}
                     onChange={handleChange}
                 >
-                    <BottomNavigationAction label="Home" value="" icon={<HomeIcon color="primary" />} />
-                    <BottomNavigationAction label="About" value="about" icon={<InfoIcon color="primary" />} />
-                    <BottomNavigationAction label="Contact" value="contact" icon={<CallIcon color="primary" />} />
+                    <BottomNavigationAction label="Home" value="" icon={<HomeIcon color={page === "Home" ? "primary" : ""} />} />
+                    <BottomNavigationAction label="About" value="about" icon={<InfoIcon color={page === "About" ? "primary" : ""} />} />
+                    <BottomNavigationAction label="Contact" value="contact" icon={<CallIcon color={page === "Contact" ? "primary" : ""} />} />
                 </BottomNavigation>
             </Box>
         </div>

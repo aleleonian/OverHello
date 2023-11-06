@@ -49,7 +49,7 @@ function HomeBodyContent() {
                 .then((response) => response.text())
                 .then((data) => {
                     console.log(data);
-                    navigate(`/Result`, {
+                    navigate(`/result`, {
                         state: {
                             data: data,
                         }

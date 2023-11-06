@@ -7,7 +7,7 @@ const About = () => {
         <div className='App-About'>
             <AboutHeader />
             <AboutBody />
-            <Botonera />
+            <Botonera page="About"/>
         </div>
     )
 };

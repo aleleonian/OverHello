@@ -7,7 +7,7 @@ const Contact = () => {
         <div>
             <ContactHeader />
             <ContactBody />
-            <Botonera />
+            <Botonera page="Contact"/>
         </div>
     )
 };

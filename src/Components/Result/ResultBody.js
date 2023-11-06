@@ -9,7 +9,7 @@ function ResultBodyContent({ name }) {
         <div className="App-Body">
             <Box>
                 <Typography variant="h5" gutterBottom>
-                    Hello {name}!
+                    {/* Hello {name}! */}
                 </Typography>
             </Box>
         </div>

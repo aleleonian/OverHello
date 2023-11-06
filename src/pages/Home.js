@@ -8,7 +8,7 @@ const Home = () => {
         <div>
             <HomeHeader />
             <HomeBody />
-            <Botonera />
+            <Botonera page="Home"/>
         </div>
     )
 };
