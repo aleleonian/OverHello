@@ -37,7 +37,7 @@ function HomeBodyContent() {
                 "name": name
             }
 
-            fetch(process.env.REACT_APP_BACKEND_SERVER, {  // Enter your IP address here
+            fetch(process.env.REACT_APP_BACKEND_SERVER, {
                 method: 'post',
                 mode: 'cors',
                 body: JSON.stringify(jsonData), // body data type must match "Content-Type" header
@@ -46,14 +46,13 @@ function HomeBodyContent() {
                 },
             })
                 .then((response) => response.text())
-                .then((data) => {
+                .then(async (data) => {
                     console.log("received->", data);
                     navigate(`/result`, {
                         state: {
                             data: data,
                         }
                     });
-                    return (data ? JSON.parse(data) : {})
                 })
                 .catch((err) => {
                     setAlertMessage(err.message);
