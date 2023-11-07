@@ -6,18 +6,16 @@ import { useEffect } from 'react';
 
 function ResultHeaderBody({ data }) {
 
-    const dataObj = JSON.parse(data);
-
     useEffect(() => {
         var msg = new SpeechSynthesisUtterance();
-        msg.text = "Hello " + dataObj.name;
+        msg.text = "Hello " + data.name;
         window.speechSynthesis.speak(msg);
-    });
+    },[data.name]);
 
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-                Hello {dataObj.name}!
+                Hello {data.name}!
             </Typography>
         </Box>
     )

@@ -4,12 +4,12 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 function ResultBodyContent({ data }) {
-
+    console.log(data);
     return (
         <div className="App-Body">
             <Box>
                 <Typography variant="h5" gutterBottom>
-                    {/* Hello {name}! */}
+                    {data.nameData}
                 </Typography>
             </Box>
         </div>
