@@ -3,7 +3,7 @@ import { Body } from '../Body';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-function ResultBodyContent({ name }) {
+function ResultBodyContent({ data }) {
 
     return (
         <div className="App-Body">
@@ -17,8 +17,7 @@ function ResultBodyContent({ name }) {
 
 }
 export function ResultBody({ data }) {
-    const name = JSON.parse(data).name;
     return (
-        <Body bodyContent={<ResultBodyContent name={name} />} />
+        <Body bodyContent={<ResultBodyContent data={data} />} />
     )
 }

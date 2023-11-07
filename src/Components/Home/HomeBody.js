@@ -33,7 +33,6 @@ function HomeBodyContent() {
                 return;
             }
 
-            console.log(process.env.REACT_APP_BACKEND_SERVER);
             var jsonData = {
                 "name": name
             }
@@ -48,7 +47,7 @@ function HomeBodyContent() {
             })
                 .then((response) => response.text())
                 .then((data) => {
-                    console.log(data);
+                    console.log("received->", data);
                     navigate(`/result`, {
                         state: {
                             data: data,

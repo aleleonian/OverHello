@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Result from "./pages/Result";
 
 function App() {
+  console.log("Rendering App")
   return (
     <BrowserRouter>
       <div className="App">
