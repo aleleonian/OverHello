@@ -10,7 +10,7 @@ function ResultHeaderBody({ data }) {
         var msg = new SpeechSynthesisUtterance();
         msg.text = "Hello " + data.name;
         window.speechSynthesis.speak(msg);
-    },[data.name]);
+    }, []);
 
     return (
         <Box>

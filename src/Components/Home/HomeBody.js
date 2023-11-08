@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import { FormControl } from '@mui/material';
 import { MyAlert } from '../MyAlert';
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 function HomeBodyContent() {
 
@@ -13,6 +14,19 @@ function HomeBodyContent() {
     const [alertMessage, setAlertMessage] = React.useState("");
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        function handleKeyDown(e) {
+            if (e.keyCode === 13) {
+                processInput();
+            }
+        }
+        document.addEventListener('keydown', handleKeyDown);
+        // Don't forget to clean up
+        return function cleanup() {
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    }, []);
 
     function handleTextInputChange() {
         if (errorAlert) {

@@ -9,7 +9,7 @@ function ResultBodyContent({ data }) {
         <div className="App-Body">
             <Box>
                 <Typography variant="h5" gutterBottom>
-                    {data.nameData}
+                    {data.nameData ? data.nameData : ""}
                 </Typography>
             </Box>
         </div>
