@@ -4,24 +4,34 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 function ResultBodyContent({ data }) {
-    console.log(data);
-    let nationality, eqNames;
+    let nationality, eqNames, moreThanOneEquivalent;
     if (data.scrapedData.equivalent) {
         data.scrapedData.equivalent = data.scrapedData.equivalent.replace(/\s+/g, " ");
         nationality = data.scrapedData.equivalent.substring(0, data.scrapedData.equivalent.indexOf(" "));;
         eqNames = data.scrapedData.equivalent.substring(data.scrapedData.equivalent.indexOf(" "), data.scrapedData.equivalent.length);
+        if (eqNames.indexOf(",") > -1) {
+            moreThanOneEquivalent = true;
+        }
     }
     return (
         <div className="App-Body">
             <Box width="80%">
+                <Typography variant="h4" gutterBottom color='primary'>
+                    According to <a href="https://www.behindthename.com">behindthename.com</a>:
+                </Typography>
                 <Typography variant="h5" gutterBottom>
                     {data.scrapedData.nameData ? data.scrapedData.nameData : ""}
                 </Typography>
                 {
                     data.scrapedData.equivalent ?
-                        <Typography variant="h5" gutterBottom>
-                            {`The ${nationality} equivalent of your name is ${eqNames}`}
-                        </Typography>
+                        <>
+                            <Typography variant="h5" gutterBottom>
+                                {`The ${nationality} equivalent${moreThanOneEquivalent ? "s" : ""} of your name ${moreThanOneEquivalent ? "are:" : "is:"}`}
+                            </Typography>
+                            <Typography variant="h5" color="primary" gutterBottom>
+                                {`${eqNames}.`}
+                            </Typography>
+                        </>
                         : ""
                 }
 
