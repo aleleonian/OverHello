@@ -1,6 +1,7 @@
 import { Botonera } from '../Components/Botonera';
 import { ContactHeader } from '../Components/Contact/ContactHeader';
 import { ContactBody } from '../Components/Contact/ContactBody';
+import { Footer } from '../Components/Footer';
 
 const Contact = () => {
     return (
@@ -8,6 +9,7 @@ const Contact = () => {
             <ContactHeader />
             <ContactBody />
             <Botonera page="Contact"/>
+            <Footer />
         </div>
     )
 };
