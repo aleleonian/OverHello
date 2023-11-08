@@ -1,20 +1,24 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Body } from '../Body';
+import { MyAlert } from '../MyAlert';
+import { FormControl } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { FormControl } from '@mui/material';
-import { MyAlert } from '../MyAlert';
-import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function HomeBodyContent() {
 
     const [errorAlert, setAlert] = React.useState(false);
     const [alertMessage, setAlertMessage] = React.useState("");
+    const [showingBackDrop, showBackdrop] = React.useState(false);
 
     const navigate = useNavigate();
 
+    // let's "hook" the "enter" key
     useEffect(() => {
         function handleKeyDown(e) {
             if (e.keyCode === 13) {
@@ -22,6 +26,7 @@ function HomeBodyContent() {
             }
         }
         document.addEventListener('keydown', handleKeyDown);
+
         // Don't forget to clean up
         return function cleanup() {
             document.removeEventListener('keydown', handleKeyDown);
@@ -34,16 +39,20 @@ function HomeBodyContent() {
         }
     }
     function processInput() {
+        showBackdrop(true);
         const name = document.getElementById('userName').value;
         if (!name || name.length === 0) {
             setAlertMessage("You must input something!");
-            setAlert(true)
+            showBackdrop(false);
+            setAlert(true);
+
         }
         else {
             let validNameRegex = /^[a-zA-Zéíóú\s]+$/;
             if (!validNameRegex.test(name)) {
                 setAlertMessage("Names cannot contain numbers or weird characters.");
                 setAlert(true)
+                showBackdrop(false);
                 return;
             }
 
@@ -71,7 +80,8 @@ function HomeBodyContent() {
                 })
                 .catch((err) => {
                     setAlertMessage(err.message);
-                    setAlert(true)
+                    setAlert(true);
+                    showBackdrop(false);
                 });
         }
     }
@@ -89,6 +99,14 @@ function HomeBodyContent() {
                 {errorAlert ? <MyAlert severity="error" message={alertMessage} /> : ""}
 
             </FormControl>
+
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={showingBackDrop}
+            // onClick={handleClose}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
 
         </div>
     )
