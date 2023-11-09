@@ -29,7 +29,7 @@ function ResultBodyContent({ data }) {
                                 {`The ${nationality} equivalent${moreThanOneEquivalent ? "s" : ""} of your name ${moreThanOneEquivalent ? "are:" : "is:"}`}
                             </Typography>
                             <Typography variant="h5" color="primary" gutterBottom>
-                                {`${eqNames}.`}
+                                {`${eqNames}`}
                             </Typography>
                         </>
                         : ""
