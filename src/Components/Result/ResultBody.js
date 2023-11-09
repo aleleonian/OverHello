@@ -19,7 +19,7 @@ function ResultBodyContent({ data }) {
     }
     useEffect(() => {
         console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name);
-        fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name, {
+        fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name.toLowerCase(), {
             method: 'get',
         })
             .then(async (response) => {
