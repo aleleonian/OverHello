@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Body } from '../Body';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { MyAlert } from '../MyAlert';
 
 function ResultBodyContent({ data }) {
 
@@ -19,7 +18,7 @@ function ResultBodyContent({ data }) {
         });
     }
     useEffect(() => {
-        console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=");
+        console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name);
         fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name, {
             method: 'get',
         })
@@ -28,6 +27,9 @@ function ResultBodyContent({ data }) {
                 if (videoCreationResponse === "OK!") {
                     console.log("videoCreationResponse", videoCreationResponse);
                     setVideoCreated(true);
+                }
+                else {
+                    console.log("something wrong with videoCreationResponse", videoCreationResponse);
                 }
             })
             .catch((err) => {
