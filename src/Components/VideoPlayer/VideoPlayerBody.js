@@ -6,7 +6,7 @@ function VideoPlayerBodyContent({data}) {
 
     return (
         <div>
-            <VideoPlayer videoUrl={`${process.env.REACT_APP_BACKEND_SERVER}/videos/${data.name}`}></VideoPlayer> <br />
+            <VideoPlayer videoUrl={`${process.env.REACT_APP_BACKEND_SERVER}/videos/${data.name.toLowerCase()}`}></VideoPlayer> <br />
         </div>
     );
 }
