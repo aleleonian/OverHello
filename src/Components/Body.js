@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export function Body({ bodyContent }) {
+export function Body({ children }) {
     return (
         <div className='App-Body'>
-            {bodyContent}
+            {children}
         </div>
     );
 }

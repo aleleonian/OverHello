@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { Body } from '../Body';
 
-function AboutBodyContent() {
+function VideoPlayerBodyContent() {
 
     return (
         <div className="App-Body">
             <p>
-                Dis the body
+                Dis the video player body
             </p>
         </div>
     )
 
 }
-export function AboutBody() {
+export function VideoPlayerBody() {
     return (
         <Body>
-            <AboutBodyContent />
+            <VideoPlayerBodyContent />
         </Body>
     )
 }

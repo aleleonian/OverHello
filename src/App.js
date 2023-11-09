@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import About from "./pages/About";
 import Result from "./pages/Result";
+import Video from "./pages/VideoPlayer";
 
 function App() {
   console.log("Rendering App")
@@ -17,6 +18,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="result" element={<Result />} />
+          <Route path="video" element={<Video />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </div>

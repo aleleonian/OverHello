@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export function Header({ headerBody }) {
+export function Header({children}) {
     return (
         <div className='App-Header'>
-            {headerBody}
+            {children}
         </div>
     );
 }

@@ -50,6 +50,8 @@ function ResultBodyContent({ data }) {
 }
 export function ResultBody({ data }) {
     return (
-        <Body bodyContent={<ResultBodyContent data={data} />} />
+        <Body>
+            <ResultBodyContent data={data}/>
+        </Body>
     )
 }

@@ -22,6 +22,8 @@ function ResultHeaderBody({ data }) {
 }
 export function ResultHeader({ data }) {
     return (
-        <Header headerBody={<ResultHeaderBody data={data} />} />
+        <Header>
+            <ResultHeaderBody data={data}/>
+        </Header>
     )
 }

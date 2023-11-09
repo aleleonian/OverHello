@@ -14,6 +14,8 @@ function ContactHeaderBody() {
 }
 export function ContactHeader() {
     return (
-        <Header headerBody={<ContactHeaderBody />} />
+        <Header>
+            <ContactHeaderBody />
+        </Header>
     )
 }

@@ -17,6 +17,8 @@ function AboutHeaderBody() {
 }
 export function AboutHeader() {
     return (
-        <Header headerBody={<AboutHeaderBody />} />
+        <Header>
+            <AboutHeaderBody />
+        </Header>
     )
 }

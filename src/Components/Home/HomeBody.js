@@ -114,6 +114,8 @@ function HomeBodyContent() {
 }
 export function HomeBody() {
     return (
-        <Body bodyContent={<HomeBodyContent />} />
+        <Body>
+            <HomeBodyContent />
+        </Body>
     )
 }

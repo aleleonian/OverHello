@@ -6,15 +6,17 @@ function ContactBodyContent() {
     return (
 
         <div className="App-Body">
-        <p>
-        Dis the body
-        </p>
+            <p>
+                Dis the body
+            </p>
         </div>
     )
 
 }
 export function ContactBody() {
     return (
-        <Body bodyContent={<ContactBodyContent />} />
+        <Body>
+            <ContactBodyContent />
+        </Body>
     )
 }
