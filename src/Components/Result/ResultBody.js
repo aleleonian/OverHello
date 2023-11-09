@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 function ResultBodyContent({ data }) {
     let nationality, eqNames, moreThanOneEquivalent;
-    if (data.scrapedData.equivalent) {
+    if (data.scrapedData && data.scrapedData.equivalent) {
         data.scrapedData.equivalent = data.scrapedData.equivalent.replace(/\s+/g, " ");
         nationality = data.scrapedData.equivalent.substring(0, data.scrapedData.equivalent.indexOf(" "));;
         eqNames = data.scrapedData.equivalent.substring(data.scrapedData.equivalent.indexOf(" "), data.scrapedData.equivalent.length);
@@ -16,14 +16,22 @@ function ResultBodyContent({ data }) {
     return (
         <div className="App-Body">
             <Box width="80%">
-                <Typography variant="h4" gutterBottom color='primary'>
-                    According to <a href="https://www.behindthename.com">behindthename.com</a>:
-                </Typography>
-                <Typography variant="h5" gutterBottom>
-                    {data.scrapedData.nameData ? data.scrapedData.nameData : ""}
-                </Typography>
                 {
-                    data.scrapedData.equivalent ?
+                    data.scrapedData ?
+                        <Typography variant="h4" gutterBottom color='primary'>
+                            According to <a href="https://www.behindthename.com">behindthename.com</a>:
+                        </Typography>
+                        : ""}
+
+                {
+                    data.scrapedData && data.scrapedData.nameData ?
+                        <Typography variant="h5" gutterBottom>
+                            {data.scrapedData.nameData}
+                        </Typography>
+                        : ""}
+
+                {
+                    data.scrapedData && data.scrapedData.equivalent ?
                         <>
                             <Typography variant="h5" gutterBottom>
                                 {`The ${nationality} equivalent${moreThanOneEquivalent ? "s" : ""} of your name ${moreThanOneEquivalent ? "are:" : "is:"}`}
