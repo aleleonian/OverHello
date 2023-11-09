@@ -8,7 +8,7 @@ import { Footer } from '../Components/Footer';
 const Result = () => {
     const location = useLocation();
 
-    console.log("data received from previous page:", location.state.data);
+    // console.log("data received from previous page:", location.state.data);
 
     return (
         <div>

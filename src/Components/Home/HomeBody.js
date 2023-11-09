@@ -59,8 +59,6 @@ function HomeBodyContent() {
             var jsonData = {
                 "name": name
             }
-            console.log("process.env.REACT_APP_BACKEND_SERVER->", process.env.REACT_APP_BACKEND_SERVER);
-
             fetch(process.env.REACT_APP_BACKEND_SERVER, {
                 method: 'post',
                 mode: 'cors',

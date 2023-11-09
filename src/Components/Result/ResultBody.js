@@ -1,10 +1,41 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Body } from '../Body';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { MyAlert } from '../MyAlert';
 
 function ResultBodyContent({ data }) {
+
+    const [videoCreated, setVideoCreated] = useState(false);
+    const navigate = useNavigate();
+
+    function navigateToVideo() {
+        navigate(`/video`, {
+            state: {
+                data: data,
+            }
+        });
+    }
+    useEffect(() => {
+        fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name, {
+            method: 'get',
+        })
+            .then(async (response) => {
+                const videoCreationResponse = await response.text();
+                if (videoCreationResponse === "OK!") {
+                    console.log("videoCreationResponse", videoCreationResponse);
+                    setVideoCreated(true);
+                }
+            })
+            .catch((err) => {
+                console.log("err!->", err);
+            });
+    }, []);
+
     let nationality, eqNames, moreThanOneEquivalent;
+
     if (data.scrapedData && data.scrapedData.equivalent) {
         data.scrapedData.equivalent = data.scrapedData.equivalent.replace(/\s+/g, " ");
         nationality = data.scrapedData.equivalent.substring(0, data.scrapedData.equivalent.indexOf(" "));;
@@ -16,6 +47,7 @@ function ResultBodyContent({ data }) {
     return (
         <div className="App-Body">
             <Box width="80%">
+
                 {
                     data.scrapedData ?
                         <Typography variant="h4" gutterBottom color='primary'>
@@ -44,6 +76,10 @@ function ResultBodyContent({ data }) {
                 }
 
             </Box>
+
+
+            {videoCreated && <a onClick={navigateToVideo} href="/video">GO</a>}
+            {/* {videoCreated && <MyAlert severity="success" message={"The video was created!"} />} */}
         </div>
     )
 
@@ -51,7 +87,7 @@ function ResultBodyContent({ data }) {
 export function ResultBody({ data }) {
     return (
         <Body>
-            <ResultBodyContent data={data}/>
+            <ResultBodyContent data={data} />
         </Body>
     )
 }
