@@ -7,7 +7,7 @@ function VideoPlayerHeaderContent() {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-            VideoPlayerHeaderContent
+            Your name spelled in morse code!
             </Typography>
         </Box>
     )

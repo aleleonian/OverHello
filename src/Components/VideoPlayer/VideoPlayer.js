@@ -11,7 +11,7 @@ export const VideoPlayer = ({ videoUrl }) => {
         }
     })
     return (
-        <video ref={videoRef} width='320' height='240' controls>
+        <video ref={videoRef} width='320' height='240' controls autoplay="true">
             <source src={videoUrl} type='video/mp4'></source>
             Your browser does not support the video tag.
         </video>
