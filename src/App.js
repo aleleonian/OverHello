@@ -12,7 +12,7 @@ function App() {
   console.log("Rendering App")
   return (
     <BrowserRouter>
-      <Fragment className="App">
+      <Fragment>
         <Routes>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
