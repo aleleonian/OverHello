@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Fragment } from 'react';
 
 function HomeBodyContent() {
 
@@ -50,7 +51,7 @@ function HomeBodyContent() {
         else {
             let validNameRegex = /^[a-zA-Zéíóú\s]+$/;
             if (!validNameRegex.test(name)) {
-                setAlertMessage("Names cannot contain numbers or weird characters.");
+                setAlertMessage("Names cannot contain certain characters.");
                 setAlert(true)
                 showBackdrop(false);
                 return;
@@ -87,7 +88,7 @@ function HomeBodyContent() {
 
     return (
 
-        <React.Fragment>
+        <Fragment>
             <FormControl>
                 <Box width={350}>
                     <TextField style={{ height }} onChange={handleTextInputChange} fullWidth rows={30} id="userName" size="big" label="Enter your first name" variant="outlined" />
@@ -101,12 +102,11 @@ function HomeBodyContent() {
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={showingBackDrop}
-            // onClick={handleClose}
             >
                 <CircularProgress color="inherit" />
             </Backdrop>
 
-        </React.Fragment>
+        </Fragment>
     )
 
 }

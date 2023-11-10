@@ -23,9 +23,9 @@ export function Botonera({ page }) {
                     value={value}
                     onChange={handleChange}
                 >
-                    <BottomNavigationAction label="Home" value="" icon={<HomeIcon color={page === "Home" ? "primary" : ""} />} />
-                    <BottomNavigationAction label="About" value="about" icon={<InfoIcon color={page === "About" ? "primary" : ""} />} />
-                    <BottomNavigationAction label="Contact" value="contact" icon={<CallIcon color={page === "Contact" ? "primary" : ""} />} />
+                    <BottomNavigationAction label="Home" value="" icon={<HomeIcon fontSize="large" color={page === "Home" ? "primary" : ""} />} />
+                    <BottomNavigationAction label="About" value="about" icon={<InfoIcon fontSize="large" color={page === "About" ? "primary" : ""} />} />
+                    <BottomNavigationAction label="Contact" value="contact" icon={<CallIcon fontSize="large" color={page === "Contact" ? "primary" : ""} />} />
                 </BottomNavigation>
             </Box>
         </div>

@@ -1,9 +1,15 @@
+
 body,
 html {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
+/* for debugging purposes */
+/* * {
+  outline: 1px solid red;
+} */
 
 #root {
   display: flex;
@@ -17,7 +23,7 @@ html {
   padding-top: 20px;
   height: 20%;
   /* One-third of the parent's width (viewport width) */
-  width: 100%;
+  /* width: 100%; */
   /* background-color: #e74c3c; */
   text-align: center;
   /* Color for the child div */
@@ -26,15 +32,15 @@ html {
 .appBody {
   padding:30px;
   height: 65%;
-  width: 100%;
+  /* width: 100%; */
   /* background-color: yellow; */
-  overflow-y: scroll;
+  /* overflow-x: scroll; */
 }
 
 .appMenu {
   height: 15%;
   /* One-third of the parent's width (viewport width) */
-  width: 100%;
+  /* width: 100%; */
   /* background-color: green; */
   /* Color for the child div */
 }
