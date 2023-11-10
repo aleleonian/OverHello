@@ -113,7 +113,8 @@ function HomeBodyContent() {
 export function HomeBody() {
     return (
         <Body>
-            <HomeBodyContent />
+            {/* <HomeBodyContent /> */}
+            HomeBody
         </Body>
     )
 }

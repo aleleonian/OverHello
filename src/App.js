@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { Fragment } from 'react';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
@@ -12,7 +12,7 @@ function App() {
   console.log("Rendering App")
   return (
     <BrowserRouter>
-      <div className="App">
+      <Fragment className="App">
         <Routes>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
@@ -21,7 +21,7 @@ function App() {
           <Route path="video" element={<Video />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
-      </div>
+      </Fragment>
 
     </BrowserRouter>
   );

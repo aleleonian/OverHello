@@ -18,7 +18,8 @@ function HomeHeaderBody() {
 export function HomeHeader() {
     return (
         <Header>
-            <HomeHeaderBody />
+            {/* <HomeHeaderBody /> */}
+            HomeHeader
         </Header>
     )
 }

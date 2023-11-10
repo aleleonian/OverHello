@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-export function Header({children}) {
+export function Header({ children }) {
     return (
-        <div className='App-Header'>
+        <div className="appHeader">
             {children}
         </div>
     );

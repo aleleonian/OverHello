@@ -19,7 +19,7 @@ function Copyright() {
 
 export function Footer() {
     return (
-        <div className='App-Footer'>
+        <div className='appFooter'>
             <Box
                 sx={{
                     display: 'flex',

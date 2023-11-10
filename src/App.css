@@ -1,6 +1,47 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  /* background-color: DodgerBlue; */
+  height: 100%;
+  width: 100%;
+}
+
+.appHeader {
+  height: 25%;
+  /* One-third of the parent's width (viewport width) */
+  width: 100%;
+  background-color: #e74c3c;
+  /* Color for the child div */
+}
+
+.appBody {
+  height: 60%;
+  /* One-third of the parent's width (viewport width) */
+  width: 100%;
+  background-color: yellow;
+  /* Color for the child div */
+}
+
+.appFooter {
+  height: 15%;
+  /* One-third of the parent's width (viewport width) */
+  width: 100%;
+  background-color: blue;
+  /* Color for the child div */
+}
+
 .App {
   text-align: center;
 }
+
+
 .App-About {
   display: flex;
   flex-direction: column;
@@ -8,6 +49,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
 .App-Body {
   margin: 0;
   top: 50%;
