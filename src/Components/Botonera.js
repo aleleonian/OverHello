@@ -16,7 +16,7 @@ export function Botonera({ page }) {
 
     }
     return (
-        <div className='appFooter'>
+        <div className='appMenu menuComponent'>
             <Box sx={{ width: 500 }}>
                 <BottomNavigation
                     showLabels

@@ -4,7 +4,7 @@ import { Body } from '../Body';
 function AboutBodyContent() {
 
     return (
-        <div className="App-Body">
+        <div className="bodyComponent">
             <p>
                 Dis the body
             </p>

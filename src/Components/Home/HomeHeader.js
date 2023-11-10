@@ -18,8 +18,7 @@ function HomeHeaderBody() {
 export function HomeHeader() {
     return (
         <Header>
-            {/* <HomeHeaderBody /> */}
-            HomeHeader
+            <HomeHeaderBody />
         </Header>
     )
 }

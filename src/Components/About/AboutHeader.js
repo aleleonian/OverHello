@@ -9,9 +9,9 @@ function AboutHeaderBody() {
             <Typography variant="h3" gutterBottom>
                 About OverHello
             </Typography>
-            <Typography variant="h6" gutterBottom>
+            {/* <Typography variant="h6" gutterBottom>
                 ...
-            </Typography>
+            </Typography> */}
         </Box>
     )
 }

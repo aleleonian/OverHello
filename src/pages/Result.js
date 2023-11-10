@@ -3,7 +3,7 @@ import { Botonera } from '../Components/Botonera';
 import { useLocation } from 'react-router-dom';
 import { ResultBody } from '../Components/Result/ResultBody';
 import { ResultHeader } from '../Components/Result/ResultHeader';
-import { Footer } from '../Components/Footer';
+import { Fragment } from 'react';
 
 const Result = () => {
     const location = useLocation();
@@ -11,12 +11,11 @@ const Result = () => {
     // console.log("data received from previous page:", location.state.data);
 
     return (
-        <div>
+        <Fragment>
             <ResultHeader data={location.state.data} />
             <ResultBody data={location.state.data} />
             <Botonera page="Result" />
-            <Footer />
-        </div>
+        </Fragment>
     )
 };
 

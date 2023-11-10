@@ -48,7 +48,7 @@ function ResultBodyContent({ data }) {
         }
     }
     return (
-        <div className="App-Body">
+        <div className="bodyComponent">
             <Box width="80%">
 
                 {

@@ -87,7 +87,7 @@ function HomeBodyContent() {
 
     return (
 
-        <div className="App-Body">
+        <React.Fragment>
             <FormControl>
                 <Box width={350}>
                     <TextField style={{ height }} onChange={handleTextInputChange} fullWidth rows={30} id="userName" size="big" label="Enter your first name" variant="outlined" />
@@ -106,15 +106,14 @@ function HomeBodyContent() {
                 <CircularProgress color="inherit" />
             </Backdrop>
 
-        </div>
+        </React.Fragment>
     )
 
 }
 export function HomeBody() {
     return (
         <Body>
-            {/* <HomeBodyContent /> */}
-            HomeBody
+            <HomeBodyContent />
         </Body>
     )
 }

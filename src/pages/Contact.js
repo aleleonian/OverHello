@@ -1,16 +1,15 @@
 import { Botonera } from '../Components/Botonera';
 import { ContactHeader } from '../Components/Contact/ContactHeader';
 import { ContactBody } from '../Components/Contact/ContactBody';
-import { Footer } from '../Components/Footer';
+import { Fragment } from 'react';
 
 const Contact = () => {
     return (
-        <div>
+        <Fragment>
             <ContactHeader />
             <ContactBody />
-            <Botonera page="Contact"/>
-            <Footer />
-        </div>
+            <Botonera page="Contact" />
+        </Fragment>
     )
 };
 

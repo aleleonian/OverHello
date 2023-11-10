@@ -14,56 +14,54 @@ html {
 }
 
 .appHeader {
-  height: 25%;
+  padding-top: 20px;
+  height: 20%;
   /* One-third of the parent's width (viewport width) */
   width: 100%;
-  background-color: #e74c3c;
+  /* background-color: #e74c3c; */
+  text-align: center;
   /* Color for the child div */
 }
 
 .appBody {
-  height: 60%;
-  /* One-third of the parent's width (viewport width) */
+  padding:30px;
+  height: 65%;
   width: 100%;
-  background-color: yellow;
-  /* Color for the child div */
+  /* background-color: yellow; */
+  overflow-y: scroll;
 }
 
-.appFooter {
+.appMenu {
   height: 15%;
   /* One-third of the parent's width (viewport width) */
   width: 100%;
-  background-color: blue;
+  /* background-color: green; */
   /* Color for the child div */
 }
+
 
 .App {
   text-align: center;
 }
 
-
+/* 
 .App-About {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-}
+} */
 
-.App-Body {
-  margin: 0;
-  top: 50%;
-  height: 30vh;
-  /* background-color: yellow; */
-
+.bodyComponent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
 }
 
-.App-Botonera {
+.menuComponent {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,22 +69,15 @@ html {
   height: 30vh;
 }
 
-.App-Footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.App-Header {
-  /* min-height: 100vh; */
+/* .App-Header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   height: 30vh;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
