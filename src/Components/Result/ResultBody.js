@@ -9,6 +9,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -75,37 +77,28 @@ function ResultBodyContent({ data }) {
 
                 {
                     data.scrapedData ?
-                        <Typography variant="h4" gutterBottom color='primary'>
-                            According to <a href={`https://www.behindthename.com/name/${data.name}`}>behindthename.com</a>:
-                        </Typography>
+                        <Card sx={{ minWidth: 275 }}>
+                            <CardContent>
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    According to <a href={`https://www.behindthename.com/name/${data.name}`}>behindthename.com</a>:                                        </Typography>
+                                <Typography variant="h5" component="div">
+                                    {data.name}
+                                </Typography>
+                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                    {data.scrapedData.nameData}
+                                </Typography>
+                                <Typography variant="body2">
+                                    The {nationality} equivalent {moreThanOneEquivalent ? "s" : ""} of your name {moreThanOneEquivalent ? "are:" : "is:"}
+                                    <span className='leBleu'> {`${eqNames}`}</span>
+                                </Typography>
+                            </CardContent>
+                        </Card>
                         : ""}
-                <ul>
-                    {
-                        data.scrapedData && data.scrapedData.nameData ?
-                            <Typography variant="h5" gutterBottom>
-                                <li> {data.scrapedData.nameData} </li>
-                            </Typography>
-                            : ""}
-
-                    {
-                        data.scrapedData && data.scrapedData.equivalent ?
-                            <><li>
-                                <Typography variant="h5" gutterBottom>
-                                    {`The ${nationality} equivalent${moreThanOneEquivalent ? "s" : ""} of your name ${moreThanOneEquivalent ? "are:" : "is:"}`}
-                                </Typography>
-                                <Typography variant="h5" color="primary" gutterBottom>
-                                    {`${eqNames}`}
-                                </Typography>
-                            </li>
-                            </>
-                            : ""
-                    }
-                </ul>
             </Box>
 
+            <br />
 
             {videoCreated && <Button onClick={navigateToVideo} variant="contained">Watch Video</Button>}
-            {/* {videoCreated && setOpenSnackBar(true)} */}
 
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>

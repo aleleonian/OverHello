@@ -6,6 +6,10 @@ html {
   padding: 0;
 }
 
+.leBleu{
+  color:#1976d2;
+}
+
 /* for debugging purposes */
 /* * {
   outline: 1px solid red;
