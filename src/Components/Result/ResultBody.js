@@ -64,7 +64,7 @@ function ResultBodyContent({ data }) {
     let nationality, eqNames, moreThanOneEquivalent;
 
     if (data.scrapedData && data.scrapedData.equivalent) {
-        data.scrapedData.equivalent = data.scrapedData.equivalent.replace(/\s+/g, " ");
+        data.scrapedData.equivalent = data.scrapedData.equivalent;
         nationality = data.scrapedData.equivalent.substring(0, data.scrapedData.equivalent.indexOf(" "));;
         eqNames = data.scrapedData.equivalent.substring(data.scrapedData.equivalent.lastIndexOf(" "), data.scrapedData.equivalent.length);
         if (eqNames.indexOf(",") > -1) {

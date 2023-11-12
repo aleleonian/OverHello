@@ -38,7 +38,7 @@ html {
   height: 65%;
   /* width: 100%; */
   /* background-color: yellow; */
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
 }
 
 .appMenu {

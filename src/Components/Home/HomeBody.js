@@ -70,6 +70,7 @@ function HomeBodyContent() {
             })
                 .then((response) => response.text())
                 .then(async (data) => {
+                    console.log("data->" + data)
                     data = JSON.parse(data);
                     navigate(`/result`, {
                         state: {
