@@ -7,7 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CallIcon from '@mui/icons-material/Call';
 
-export function Botonera({ page }) {
+export function ButtonsMenu({ page }) {
     const [value, setValue] = React.useState(0);
     const navigate = useNavigate();
     function handleChange(event, newValue) {

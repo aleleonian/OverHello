@@ -15,7 +15,7 @@ function HomeBodyContent() {
 
     const [errorAlert, setAlert] = React.useState(false);
     const [alertMessage, setAlertMessage] = React.useState("");
-    const [showingBackDrop, showBackdrop] = React.useState(false);
+    const [showingBackDrop, setShowBackdrop] = React.useState(false);
 
     const navigate = useNavigate();
 
@@ -40,11 +40,11 @@ function HomeBodyContent() {
         }
     }
     function processInput() {
-        showBackdrop(true);
+        setShowBackdrop(true);
         const name = document.getElementById('userName').value;
         if (!name || name.length === 0) {
             setAlertMessage("You must input something!");
-            showBackdrop(false);
+            setShowBackdrop(false);
             setAlert(true);
 
         }
@@ -53,7 +53,7 @@ function HomeBodyContent() {
             if (!validNameRegex.test(name)) {
                 setAlertMessage("Names cannot contain certain characters.");
                 setAlert(true)
-                showBackdrop(false);
+                setShowBackdrop(false);
                 return;
             }
 
@@ -81,7 +81,7 @@ function HomeBodyContent() {
                 .catch((err) => {
                     setAlertMessage(err.message);
                     setAlert(true);
-                    showBackdrop(false);
+                    setShowBackdrop(false);
                 });
         }
     }

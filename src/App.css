@@ -1,4 +1,3 @@
-
 body,
 html {
   height: 100%;
@@ -6,8 +5,8 @@ html {
   padding: 0;
 }
 
-.leBleu{
-  color:#1976d2;
+.leBleu {
+  color: #1976d2;
 }
 
 /* for debugging purposes */
@@ -34,7 +33,7 @@ html {
 }
 
 .appBody {
-  padding:30px;
+  padding: 30px;
   height: 65%;
   /* width: 100%; */
   /* background-color: yellow; */

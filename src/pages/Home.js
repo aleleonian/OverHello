@@ -1,16 +1,14 @@
 import { React, Fragment } from 'react';
 import { HomeBody } from '../Components/Home/HomeBody';
 import { HomeHeader } from '../Components/Home/HomeHeader';
-import { Botonera } from '../Components/Botonera';
+import { ButtonsMenu } from '../Components/ButtonsMenu';
 
-const Home = () => {
+export const Home = () => {
     return (
         <Fragment>
             <HomeHeader />
             <HomeBody />
-            <Botonera page="Home" />
+            <ButtonsMenu page="Home" />
         </Fragment>
     )
 };
-
-export default Home;

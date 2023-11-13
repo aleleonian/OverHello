@@ -1,16 +1,14 @@
-import { Botonera } from '../Components/Botonera';
+import { ButtonsMenu } from '../Components/ButtonsMenu';
 import { ContactHeader } from '../Components/Contact/ContactHeader';
 import { ContactBody } from '../Components/Contact/ContactBody';
 import { Fragment } from 'react';
 
-const Contact = () => {
+export const Contact = () => {
     return (
         <Fragment>
             <ContactHeader />
             <ContactBody />
-            <Botonera page="Contact" />
+            <ButtonsMenu page="Contact" />
         </Fragment>
     )
 };
-
-export default Contact;

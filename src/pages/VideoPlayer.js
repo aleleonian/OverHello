@@ -1,11 +1,11 @@
 import React from 'react';
-import { Botonera } from '../Components/Botonera';
+import { ButtonsMenu } from '../Components/ButtonsMenu';
 import { VideoPlayerBody } from '../Components/VideoPlayer/VideoPlayerBody';
 import { VideoPlayerHeader } from '../Components/VideoPlayer/VideoPlayerHeader';
 import { useLocation } from 'react-router-dom';
 import { Fragment } from 'react';
 
-const VideoPlayer = () => {
+export const VideoPlayer = () => {
 
     const location = useLocation();
 
@@ -13,9 +13,8 @@ const VideoPlayer = () => {
         <Fragment>
             <VideoPlayerHeader />
             <VideoPlayerBody data={location.state.data} />
-            <Botonera />
+            <ButtonsMenu />
         </Fragment>
     )
 };
 
-export default VideoPlayer;

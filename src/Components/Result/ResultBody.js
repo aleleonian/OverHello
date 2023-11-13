@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Body } from '../Body';
@@ -7,59 +6,23 @@ import { Body } from '../Body';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 function ResultBodyContent({ data }) {
-
-    const [videoCreated, setVideoCreated] = useState(false);
-    const [openSnackBar, setOpenSnackBar] = useState(false);
-    let vertical = 'top';
-    let horizontal = 'right';
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpenSnackBar(false);
-    };
 
     const navigate = useNavigate();
 
-    function navigateToVideo() {
-        navigate(`/video`, {
+    function navigateToSpreadsheet() {
+        delete data.scrapedData;
+        delete data.success;
+        navigate(`/spreadsheet`, {
             state: {
                 data: data,
             }
         });
     }
-    useEffect(() => {
-        console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name);
-        fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name.toLowerCase(), {
-            method: 'get',
-        })
-            .then(async (response) => {
-                const videoCreationResponse = await response.text();
-                if (videoCreationResponse === "OK!") {
-                    console.log("videoCreationResponse", videoCreationResponse);
-                    setVideoCreated(true);
-                    setOpenSnackBar(true);
-                }
-                else {
-                    console.log("something wrong with videoCreationResponse", videoCreationResponse);
-                }
-            })
-            .catch((err) => {
-                console.log("err!->", err);
-            });
-    }, []);
+
 
     let nationality, eqNames, moreThanOneEquivalent;
 
@@ -74,7 +37,6 @@ function ResultBodyContent({ data }) {
     return (
         <div className="bodyComponent">
             <Box width="80%">
-
                 {
                     data.scrapedData ?
                         <Card sx={{ minWidth: 275 }}>
@@ -95,17 +57,9 @@ function ResultBodyContent({ data }) {
                         </Card>
                         : ""}
             </Box>
-
             <br />
+            <Button onClick={navigateToSpreadsheet} variant="contained">Continue to spreadsheet!</Button>
 
-            {videoCreated && <Button onClick={navigateToVideo} variant="contained">Watch Video</Button>}
-
-            <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    Your video was created!
-                </Alert>
-            </Snackbar>
-            {/* {videoCreated && <MyAlert severity="success" message={"The video was created!"} />} */}
         </div>
     )
 
