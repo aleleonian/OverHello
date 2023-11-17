@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-export const VideoPlayer = ({ videoUrl }) => {
+export const MorseCode = ({ videoUrl }) => {
     const videoRef = useRef(null)
 
     useEffect(() => {

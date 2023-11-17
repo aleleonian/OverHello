@@ -6,7 +6,7 @@ import { Contact } from "./pages/Contact";
 import { NoPage } from "./pages/NoPage";
 import { About } from "./pages/About";
 import { Result } from "./pages/Result";
-import { VideoPlayer } from "./pages/VideoPlayer";
+import { MorseCode } from "./pages/MorseCode";
 import { Spreadsheet } from './pages/Spreadsheet';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="result" element={<Result />} />
-          <Route path="video" element={<VideoPlayer />} />
+          <Route path="morse" element={<MorseCode />} />
           <Route path="spreadsheet" element={<Spreadsheet />} />
           <Route path="*" element={<NoPage />} />
         </Routes>

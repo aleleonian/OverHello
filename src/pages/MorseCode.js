@@ -1,18 +1,18 @@
 import React from 'react';
 import { ButtonsMenu } from '../Components/ButtonsMenu';
-import { VideoPlayerBody } from '../Components/VideoPlayer/VideoPlayerBody';
-import { VideoPlayerHeader } from '../Components/VideoPlayer/VideoPlayerHeader';
+import { MorseCodeBody } from '../Components/MorseCode/MorseCodeBody';
+import { MorseCodeHeader } from '../Components/MorseCode/MorseCodeHeader';
 import { useLocation } from 'react-router-dom';
 import { Fragment } from 'react';
 
-export const VideoPlayer = () => {
+export const MorseCode = () => {
 
     const location = useLocation();
 
     return (
         <Fragment>
-            <VideoPlayerHeader />
-            <VideoPlayerBody data={location.state.data} />
+            <MorseCodeHeader />
+            <MorseCodeBody data={location.state.data} />
             <ButtonsMenu />
         </Fragment>
     )

@@ -35,7 +35,7 @@ function SpreadsheetBodyContent({ data }) {
     const navigate = useNavigate();
 
     function navigateToVideo() {
-        navigate(`/video`, {
+        navigate(`/morse`, {
             state: {
                 data: data,
             }

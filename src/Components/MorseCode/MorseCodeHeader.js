@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Header } from '../Header';
 
-function VideoPlayerHeaderContent() {
+function MorseCodeHeaderContent() {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
@@ -12,10 +12,10 @@ function VideoPlayerHeaderContent() {
         </Box>
     )
 }
-export function VideoPlayerHeader() {
+export function MorseCodeHeader() {
     return (
         <Header>
-            <VideoPlayerHeaderContent />
+            <MorseCodeHeaderContent />
         </Header>
     )
 }
