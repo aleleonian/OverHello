@@ -45,6 +45,7 @@ function SpreadsheetBodyContent({ data }) {
         console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name);
         fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name.toLowerCase(), {
             method: 'get',
+            mode: 'cors',
         })
             .then(async (response) => {
                 const videoCreationResponse = JSON.parse(await response.text());
@@ -82,6 +83,7 @@ function SpreadsheetBodyContent({ data }) {
         function doFetch() {
             return fetch(process.env.REACT_APP_BACKEND_SERVER + "/users/get?userId=" + data.userId, {
                 method: 'get',
+                mode: 'cors'
             })
                 .then(async (response) => {
                     const userData = JSON.parse(await response.text());

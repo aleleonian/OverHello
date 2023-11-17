@@ -9,6 +9,10 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+// TODO:
+// I should check if the spreadsheet was created and then and only then 
+// go for /navigateToSpreadSheet
+
 function ResultBodyContent({ data }) {
 
     const navigate = useNavigate();
