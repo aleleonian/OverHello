@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Body } from '../Body';
 import { MyAlert } from '../MyAlert';
@@ -13,9 +13,9 @@ import { Fragment } from 'react';
 
 function HomeBodyContent() {
 
-    const [errorAlert, setAlert] = React.useState(false);
-    const [alertMessage, setAlertMessage] = React.useState("");
-    const [showingBackDrop, setShowBackdrop] = React.useState(false);
+    const [errorAlert, setAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const [showingBackDrop, setShowBackdrop] = useState(false);
 
     const navigate = useNavigate();
 

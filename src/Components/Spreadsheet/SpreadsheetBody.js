@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Body } from '../Body';
+import { MyAlert } from '../MyAlert';
 
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
@@ -20,6 +21,10 @@ function SpreadsheetBodyContent({ data }) {
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const [showingBackDrop, setShowingBackdrop] = useState(true);
     const [userData, setUserData] = useState({ spreadSheetSnapshot: false });
+    const [videoErrorAlert, setVideoErrorAlert] = useState(false);
+    const [spreadSheetErrorAlert, setSpreadSheetErrorAlert] = useState(false);
+    const [videoErrorMessage, setVideoErrorMessage] = useState("");
+    const [spreadSheetErrorMessage, setSpreadSheetErrorMessage] = useState("");
 
     let vertical = 'top';
     let horizontal = 'right';
@@ -42,7 +47,6 @@ function SpreadsheetBodyContent({ data }) {
         });
     }
     useEffect(() => {
-        console.log(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name);
         fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name.toLowerCase(), {
             method: 'get',
             mode: 'cors',
@@ -55,11 +59,14 @@ function SpreadsheetBodyContent({ data }) {
                     setOpenSnackBar(true);
                 }
                 else {
-                    console.log("something wrong with videoCreationResponse", videoCreationResponse);
+                    setVideoErrorMessage("Video creation failed!->", videoCreationResponse)
+                    setVideoErrorAlert(true);
                 }
             })
             .catch((err) => {
                 console.log("err!->", err);
+                setVideoErrorMessage("Video creation problem :(")
+                setVideoErrorAlert(true);
             });
     }, []);
     useEffect(() => { fetchUserData() }, []);
@@ -68,18 +75,25 @@ function SpreadsheetBodyContent({ data }) {
 
         let theData = {};
         theData.spreadSheetSnapshot = false;
+        let counter = 0;
 
-        while (!theData.spreadSheetSnapshot) {
+        while (!theData.spreadSheetSnapshot && counter < 5) {
             theData = await doFetch();
             await wait(2000);
+            counter++;
         }
 
         setUserData(theData);
 
+        setShowingBackdrop(false);
+
         if (theData.spreadSheetSnapshot) {
             const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.userId + "-snapshot.jpg"
             document.getElementById('spreadSheetSnapshot').src = imgUrl;
-            setShowingBackdrop(false);
+        }
+        else {
+            setSpreadSheetErrorMessage("There was a problem generating your spreadsheet :(");
+            setSpreadSheetErrorAlert(true);
         }
 
         function doFetch() {
@@ -108,7 +122,9 @@ function SpreadsheetBodyContent({ data }) {
                 <img id="spreadSheetSnapshot" />
             </a>
             <br />
+            {spreadSheetErrorAlert ? <MyAlert severity="error" message={spreadSheetErrorMessage} /> : ""}
             {videoCreated && <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>}
+            {videoErrorAlert ? <MyAlert severity="error" message={videoErrorMessage} /> : ""}
 
 
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
