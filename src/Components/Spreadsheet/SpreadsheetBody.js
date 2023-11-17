@@ -77,6 +77,8 @@ function SpreadsheetBodyContent({ data }) {
         setUserData(theData);
 
         if (theData.spreadSheetSnapshot) {
+            const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.userId + "-snapshot.jpg"
+            document.getElementById('spreadSheetSnapshot').src = imgUrl;
             setShowingBackdrop(false);
         }
 
@@ -103,10 +105,10 @@ function SpreadsheetBodyContent({ data }) {
     return (
         <div className="bodyComponent">
             <a href={userData.spreadSheetUrl} target="_blank">
-                <img src={process.env.REACT_APP_BACKEND_SERVER + "/images/" + data.userId + "-snapshot.jpg"} />
+                <img id="spreadSheetSnapshot" />
             </a>
             <br />
-            {videoCreated && <Button onClick={navigateToVideo} variant="contained">Continue to Video</Button>}
+            {videoCreated && <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>}
 
 
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
