@@ -95,7 +95,7 @@ function MorseCodeBodyContent({ data }) {
             </Typography>
             <MorseCode videoUrl={`${process.env.REACT_APP_BACKEND_SERVER}/videos/${data.name.toLowerCase()}`}></MorseCode> <br />
             <br />
-            {data.tweet && <Button onClick={navigateToTweet} variant="contained">Continue to your tweet!</Button>}
+            <Button onClick={navigateToTweet} variant="contained">Continue to your tweet!</Button>
             {videoErrorAlert ? <MyAlert severity="error" message={videoErrorMessage} /> : ""}
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
