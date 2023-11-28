@@ -26,6 +26,14 @@ function ResultBodyContent({ data }) {
             }
         });
     }
+    function navigateToMorse() {
+        delete data.success;
+        navigate(`/morse`, {
+            state: {
+                data: data,
+            }
+        });
+    }
 
 
     let nationality, eqNames, moreThanOneEquivalent;
@@ -59,7 +67,12 @@ function ResultBodyContent({ data }) {
                 </Card>
             </Box>
             <br />
-            <Button onClick={navigateToSpreadsheet} variant="contained">Continue to spreadsheet!</Button>
+            {data.scrapedData && data.scrapedData.equivalent
+                ?
+                <Button onClick={navigateToSpreadsheet} variant="contained">Continue to spreadsheet!</Button>
+                :
+                <Button onClick={navigateToMorse} variant="contained">Continue to Morse Code!</Button>
+            }
 
         </div>
     )
