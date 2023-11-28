@@ -41,25 +41,22 @@ function ResultBodyContent({ data }) {
     return (
         <div className="bodyComponent">
             <Box width="80%">
-                {
-                    data.scrapedData ?
-                        <Card sx={{ minWidth: 275 }}>
-                            <CardContent>
-                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                    According to <a href={`https://www.behindthename.com/name/${data.name}`}>behindthename.com</a>:                                        </Typography>
-                                <Typography variant="h5" component="div">
-                                    {data.name}
-                                </Typography>
-                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                    {data.scrapedData.nameData}
-                                </Typography>
-                                <Typography variant="body2">
-                                    The {nationality} equivalent {moreThanOneEquivalent ? "s" : ""} of your name {moreThanOneEquivalent ? "are:" : "is:"}
-                                    <span className='leBleu'> {`${eqNames}`}</span>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                        : ""}
+                <Card sx={{ minWidth: 275 }}>
+                    <CardContent>
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                            According to <a href={`https://www.behindthename.com/name/${data.name}`}>behindthename.com</a>:                                        </Typography>
+                        <Typography variant="h5" component="div">
+                            {data.name}
+                        </Typography>
+                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                            {data.scrapedData && data.scrapedData.nameData ? data.scrapedData.nameData : "Tried to scrape data about your name could not find any!"}
+                        </Typography>
+                        <Typography variant="body2">
+                            {eqNames && `The ${nationality} equivalent ${moreThanOneEquivalent ? "s" : ""} of your name ${moreThanOneEquivalent ? "are:" : "is:"}`}
+                            {eqNames && <span className='leBleu'> {`${eqNames}`}</span>}
+                        </Typography>
+                    </CardContent>
+                </Card>
             </Box>
             <br />
             <Button onClick={navigateToSpreadsheet} variant="contained">Continue to spreadsheet!</Button>

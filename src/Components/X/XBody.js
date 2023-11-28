@@ -16,7 +16,6 @@ function XBodyContent({ data }) {
                 <Card sx={{ minWidth: 275 }}>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            Twitter thingy
                         </Typography>
                         <a href={data.tweet} target="_blank">
                             <img id="tweetSnapshot" src={process.env.REACT_APP_BACKEND_SERVER + "/images/" + data.tweetSnapshot}/>

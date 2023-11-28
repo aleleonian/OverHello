@@ -81,9 +81,9 @@ function SpreadsheetBodyContent({ data }) {
         theData.spreadSheetSnapshot = false;
         let counter = 0;
 
-        while (!theData.spreadSheetSnapshot && counter < 5) {
+        while (!theData.spreadSheetSnapshot && !theData.tweetSnapshot && counter < 5) {
             theData = await doFetch();
-            await wait(2000);
+            await wait(5000);
             counter++;
         }
         console.log("fetchedData->", JSON.stringify(theData));
