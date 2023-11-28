@@ -11,7 +11,7 @@ export const MorseCode = ({ videoUrl }) => {
         }
     })
     return (
-        <video ref={videoRef} width='320' height='240' controls autoPlay="true">
+        <video ref={videoRef} width='320' height='240' controls autoPlay={true}>
             <source src={videoUrl} type='video/mp4'></source>
             Your browser does not support the video tag.
         </video>

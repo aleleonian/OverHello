@@ -40,9 +40,13 @@ function SpreadsheetBodyContent({ data }) {
     const navigate = useNavigate();
 
     function navigateToVideo() {
+        let updatedData = { ...data };
+        updatedData.tweet = userData.tweet;
+        updatedData.tweetSnapshot = userData.tweetSnapshot;
+        
         navigate(`/morse`, {
             state: {
-                data: data,
+                data: updatedData,
             }
         });
     }
@@ -82,13 +86,13 @@ function SpreadsheetBodyContent({ data }) {
             await wait(2000);
             counter++;
         }
-
+        console.log("fetchedData->", JSON.stringify(theData));
         setUserData(theData);
 
         setShowingBackdrop(false);
 
         if (theData.spreadSheetSnapshot) {
-            const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.userId + "-snapshot.jpg"
+            const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.spreadSheetSnapshot;
             document.getElementById('spreadSheetSnapshot').src = imgUrl;
         }
         else {
