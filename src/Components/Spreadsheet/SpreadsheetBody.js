@@ -6,36 +6,18 @@ import { Body } from '../Body';
 import { MyAlert } from '../MyAlert';
 
 import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+
 
 function SpreadsheetBodyContent({ data }) {
 
-    const [videoCreated, setVideoCreated] = useState(false);
-    const [openSnackBar, setOpenSnackBar] = useState(false);
     const [showingBackDrop, setShowingBackdrop] = useState(true);
     const [userData, setUserData] = useState({ spreadSheetSnapshot: false });
-    const [videoErrorAlert, setVideoErrorAlert] = useState(false);
     const [spreadSheetErrorAlert, setSpreadSheetErrorAlert] = useState(false);
-    const [videoErrorMessage, setVideoErrorMessage] = useState("");
     const [spreadSheetErrorMessage, setSpreadSheetErrorMessage] = useState("");
 
-    let vertical = 'top';
-    let horizontal = 'right';
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpenSnackBar(false);
-    };
 
     const navigate = useNavigate();
 
@@ -50,29 +32,7 @@ function SpreadsheetBodyContent({ data }) {
             }
         });
     }
-    useEffect(() => {
-        fetch(process.env.REACT_APP_BACKEND_SERVER + "/merge?name=" + data.name.toLowerCase(), {
-            method: 'get',
-            mode: 'cors',
-        })
-            .then(async (response) => {
-                const videoCreationResponse = JSON.parse(await response.text());
-                console.log("videoCreationResponse", videoCreationResponse);
-                if (videoCreationResponse.success) {
-                    setVideoCreated(true);
-                    setOpenSnackBar(true);
-                }
-                else {
-                    setVideoErrorMessage("Video creation failed!->", videoCreationResponse)
-                    setVideoErrorAlert(true);
-                }
-            })
-            .catch((err) => {
-                console.log("err!->", err);
-                setVideoErrorMessage("Video creation problem :(")
-                setVideoErrorAlert(true);
-            });
-    }, []);
+
     useEffect(() => { fetchUserData() }, []);
 
     async function fetchUserData() {
@@ -81,7 +41,7 @@ function SpreadsheetBodyContent({ data }) {
         theData.spreadSheetSnapshot = false;
         let counter = 0;
 
-        while (!theData.spreadSheetSnapshot && !theData.tweetSnapshot && counter < 5) {
+        while (!theData.spreadSheetSnapshot && counter < 5) {
             theData = await doFetch();
             await wait(5000);
             counter++;
@@ -127,15 +87,8 @@ function SpreadsheetBodyContent({ data }) {
             </a>
             <br />
             {spreadSheetErrorAlert ? <MyAlert severity="error" message={spreadSheetErrorMessage} /> : ""}
-            {videoCreated && <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>}
-            {videoErrorAlert ? <MyAlert severity="error" message={videoErrorMessage} /> : ""}
+            <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>
 
-
-            <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    Your video was created!
-                </Alert>
-            </Snackbar>
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={showingBackDrop}
