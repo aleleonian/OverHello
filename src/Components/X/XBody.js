@@ -91,7 +91,7 @@ function XBodyContent({ data }) {
     }
 
     return (
-        <div className="bodyComponent">
+        <div>
             <a id="tweetUrl" target="_blank">
                 <img id="tweetSnapshot" />
             </a>

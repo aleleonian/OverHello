@@ -14,7 +14,6 @@ export const Result = () => {
         <Fragment>
             <ResultHeader data={location.state.data} />
             <ResultBody data={location.state.data} />
-            <ButtonsMenu page="Result" />
         </Fragment>
     )
 };

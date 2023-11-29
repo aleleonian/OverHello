@@ -9,7 +9,6 @@ export const About = () => {
         <Fragment>
             <AboutHeader />
             <AboutBody />
-            <ButtonsMenu page="About" />
         </Fragment>
     )
 };

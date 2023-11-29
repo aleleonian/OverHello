@@ -9,6 +9,9 @@ function MorseCodeHeaderContent() {
             <Typography variant="h3" gutterBottom>
             Your name spelled in morse code!
             </Typography>
+            <Typography variant="h6" gutterBottom>
+            And a video created for you!
+            </Typography>
         </Box>
     )
 }

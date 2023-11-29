@@ -23,74 +23,45 @@ html {
 }
 
 .appHeader {
-  padding-top: 20px;
-  height: 20%;
-  /* One-third of the parent's width (viewport width) */
-  /* width: 100%; */
-  /* background-color: #e74c3c; */
   text-align: center;
-  /* Color for the child div */
 }
 
 .appBody {
-  padding: 30px;
-  height: 65%;
-  /* width: 100%; */
+  padding-top: 30px;
   /* background-color: yellow; */
-  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .appMenu {
-  height: 15%;
+  /* height: 10%; */
   /* One-third of the parent's width (viewport width) */
   /* width: 100%; */
-  /* background-color: green; */
+  background-color: green;
+  position: sticky;
   /* Color for the child div */
 }
 
+.drawerLink {
+  text-decoration: none;
+}
 
 .App {
   text-align: center;
 }
 
 /* 
-.App-About {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-} */
 
-.bodyComponent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* font-size: calc(10px + 2vmin); */
-}
-
-.menuComponent {
+/* .menuComponent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 30vh;
-}
-
-/* .App-Header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  height: 30vh;
 } */
 
-/* .App-link {
-  color: #61dafb;
-} */
-
-#spreadSheetSnapshot{
+#spreadSheetSnapshot {
   padding-top: 20px;
 }

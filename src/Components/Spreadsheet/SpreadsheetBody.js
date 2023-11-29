@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Fragment } from 'react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -96,13 +97,12 @@ function SpreadsheetBodyContent({ data }) {
     }
 
     return (
-        <div className="bodyComponent">
+        <Fragment>
             <a href={userData.spreadSheetUrl} target="_blank">
                 <img id="spreadSheetSnapshot" />
             </a>
             <br />
             {spreadSheetErrorAlert ? <MyAlert severity="error" message={spreadSheetErrorMessage} /> : ""}
-            <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     Click on the spreadsheet!
@@ -114,7 +114,8 @@ function SpreadsheetBodyContent({ data }) {
             >
                 <CircularProgress color="inherit" />
             </Backdrop>
-        </div>
+            <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>
+        </Fragment>
     )
 
 }

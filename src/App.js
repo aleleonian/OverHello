@@ -8,13 +8,16 @@ import { About } from "./pages/About";
 import { Result } from "./pages/Result";
 import { MorseCode } from "./pages/MorseCode";
 import { Spreadsheet } from './pages/Spreadsheet';
+import {TemporaryDrawer} from './Components/Sidebar/TemporaryDrawer';
+
 import { X } from './pages/X';
 
 function App() {
   console.log("Rendering App")
   return (
+    <Fragment>
+    <TemporaryDrawer />
     <BrowserRouter>
-      <Fragment>
         <Routes>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
@@ -25,9 +28,8 @@ function App() {
           <Route path="x" element={<X />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
-      </Fragment>
-
     </BrowserRouter>
+    </Fragment>
   );
 }
 

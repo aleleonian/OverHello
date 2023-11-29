@@ -4,7 +4,7 @@ import { Body } from '../Body';
 function AboutBodyContent() {
 
     return (
-        <div className="bodyComponent">
+        <div>
             <p>
                 Dis the body
             </p>

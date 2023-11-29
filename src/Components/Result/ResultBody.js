@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Fragment } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Body } from '../Body';
@@ -47,9 +48,9 @@ function ResultBodyContent({ data }) {
         }
     }
     return (
-        <div className="bodyComponent">
-            <Box width="80%">
-                <Card sx={{ minWidth: 275 }}>
+        <Fragment>
+            <Box>
+                <Card>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                             According to <a href={`https://www.behindthename.com/name/${data.name}`}>behindthename.com</a>:                                        </Typography>
@@ -65,16 +66,15 @@ function ResultBodyContent({ data }) {
                         </Typography>
                     </CardContent>
                 </Card>
+                <br />
             </Box>
-            <br />
             {data.scrapedData && data.scrapedData.equivalent
                 ?
                 <Button onClick={navigateToSpreadsheet} variant="contained">Continue to spreadsheet!</Button>
                 :
                 <Button onClick={navigateToMorse} variant="contained">Continue to Morse Code!</Button>
             }
-
-        </div>
+        </Fragment>
     )
 
 }

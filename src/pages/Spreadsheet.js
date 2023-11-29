@@ -14,7 +14,6 @@ export const Spreadsheet = () => {
         <Fragment>
             <SpreadsheetHeader data={location.state.data} />
             <SpreadsheetBody data={location.state.data} />
-            <ButtonsMenu />
         </Fragment>
     )
 };

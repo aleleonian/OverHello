@@ -1,3 +1,6 @@
+// this file is deprectated.
+// only kept for future referene
+
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Box from '@mui/material/Box';

@@ -13,7 +13,6 @@ export const MorseCode = () => {
         <Fragment>
             <MorseCodeHeader />
             <MorseCodeBody data={location.state.data} />
-            <ButtonsMenu />
         </Fragment>
     )
 };

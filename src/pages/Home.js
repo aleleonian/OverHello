@@ -8,7 +8,6 @@ export const Home = () => {
         <Fragment>
             <HomeHeader />
             <HomeBody />
-            <ButtonsMenu page="Home" />
         </Fragment>
     )
 };

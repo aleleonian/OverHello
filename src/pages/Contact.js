@@ -8,7 +8,6 @@ export const Contact = () => {
         <Fragment>
             <ContactHeader />
             <ContactBody />
-            <ButtonsMenu page="Contact" />
         </Fragment>
     )
 };
