@@ -91,9 +91,6 @@ html {
   color: #61dafb;
 } */
 
-/* .spreadSheetImg {
-  width: 100%;
-  max-width: 350px;
-  height: 300px;
-  object-fit: cover;
-} */
+#spreadSheetSnapshot{
+  padding-top: 20px;
+}

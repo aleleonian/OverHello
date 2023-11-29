@@ -10,6 +10,9 @@ function SpreadsheetHeaderContent({ data }) {
             <Typography variant="h3" gutterBottom>
                 Your spreadsheet, {data.name}!
             </Typography>
+            <Typography variant="h6" gutterBottom>
+                Here's a list of international equivalents to your name:
+            </Typography>
         </Box>
     )
 }

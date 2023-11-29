@@ -17,6 +17,9 @@ function ResultHeaderBody({ data }) {
             <Typography variant="h3" gutterBottom>
                 Hello {data.name}!
             </Typography>
+            <Typography variant="h6" gutterBottom>
+                Here's (hopefully) some information about your name...
+            </Typography>
         </Box>
     )
 }

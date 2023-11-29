@@ -4,20 +4,36 @@ import { useNavigate } from "react-router-dom";
 
 import { Body } from '../Body';
 import { MyAlert } from '../MyAlert';
+import Snackbar from '@mui/material/Snackbar';
 
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import MuiAlert from '@mui/material/Alert';
 
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function SpreadsheetBodyContent({ data }) {
 
+    const [openSnackBar, setOpenSnackBar] = useState(false);
     const [showingBackDrop, setShowingBackdrop] = useState(true);
     const [userData, setUserData] = useState({ spreadSheetSnapshot: false });
     const [spreadSheetErrorAlert, setSpreadSheetErrorAlert] = useState(false);
     const [spreadSheetErrorMessage, setSpreadSheetErrorMessage] = useState("");
 
+    let vertical = 'top';
+    let horizontal = 'right';
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpenSnackBar(false);
+    };
 
     const navigate = useNavigate();
 
@@ -25,7 +41,7 @@ function SpreadsheetBodyContent({ data }) {
         let updatedData = { ...data };
         updatedData.tweet = userData.tweet;
         updatedData.tweetSnapshot = userData.tweetSnapshot;
-        
+
         navigate(`/morse`, {
             state: {
                 data: updatedData,
@@ -43,14 +59,13 @@ function SpreadsheetBodyContent({ data }) {
 
         while (!theData.spreadSheetSnapshot && counter < 5) {
             theData = await doFetch();
-            await wait(5000);
+            await wait(2000);
             counter++;
         }
-        console.log("fetchedData->", JSON.stringify(theData));
         setUserData(theData);
 
         setShowingBackdrop(false);
-
+        setOpenSnackBar(true);
         if (theData.spreadSheetSnapshot) {
             const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.spreadSheetSnapshot;
             document.getElementById('spreadSheetSnapshot').src = imgUrl;
@@ -88,7 +103,11 @@ function SpreadsheetBodyContent({ data }) {
             <br />
             {spreadSheetErrorAlert ? <MyAlert severity="error" message={spreadSheetErrorMessage} /> : ""}
             <Button onClick={navigateToVideo} variant="contained">Continue to Morse Code</Button>
-
+            <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Click on the spreadsheet!
+                </Alert>
+            </Snackbar>
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={showingBackDrop}

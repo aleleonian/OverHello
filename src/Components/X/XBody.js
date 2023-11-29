@@ -3,18 +3,33 @@ import { useEffect, useState } from 'react';
 import { MyAlert } from '../MyAlert';
 
 import { Body } from '../Body';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function XBodyContent({ data }) {
 
     const [showingBackDrop, setShowingBackdrop] = useState(true);
-    const [spreadSheetErrorAlert, setTweetAlert] = useState(false);
-    const [spreadSheetErrorMessage, setTweetErrorMessage] = useState("");
+    const [tweetErrorAlert, setTweetAlert] = useState(false);
+    const [tweetErrorMessage, setTweetErrorMessage] = useState("");
+    const [openSnackBar, setOpenSnackBar] = useState(false);
+
+    let vertical = 'top';
+    let horizontal = 'right';
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpenSnackBar(false);
+    };
+
 
     console.log("/x data received from the previous page->" + JSON.stringify(data));
 
@@ -39,6 +54,7 @@ function XBodyContent({ data }) {
         }
 
         setShowingBackdrop(false);
+        setOpenSnackBar(true);
 
         if (theData.tweetSnapshot) {
             const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.tweetSnapshot;
@@ -76,24 +92,21 @@ function XBodyContent({ data }) {
 
     return (
         <div className="bodyComponent">
-            <Box width="80%">
-                <Card sx={{ minWidth: 275 }}>
-                    <CardContent>
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        </Typography>
-                        <a id="tweetUrl" target="_blank">
-                            <img id="tweetSnapshot" />
-                        </a>
-                    </CardContent>
-                </Card>
-            </Box>
-            {spreadSheetErrorAlert ? <MyAlert severity="error" message={spreadSheetErrorMessage} /> : ""}
+            <a id="tweetUrl" target="_blank">
+                <img id="tweetSnapshot" />
+            </a>
+            {tweetErrorAlert ? <MyAlert severity="error" message={tweetErrorMessage} /> : ""}
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={showingBackDrop}
             >
                 <CircularProgress color="inherit" />
             </Backdrop>
+            <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="primary" sx={{ width: '100%' }}>
+                    Click on the tweet image!
+                </Alert>
+            </Snackbar>
         </div>
     )
 
