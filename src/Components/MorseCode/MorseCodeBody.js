@@ -58,6 +58,7 @@ function MorseCodeBodyContent({ data }) {
                 console.log("err!->", err);
                 setVideoErrorMessage("Video creation problem :(")
                 setVideoErrorAlert(true);
+                setShowingBackdrop(false);
             });
     }, []);
 
