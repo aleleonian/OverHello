@@ -10,7 +10,7 @@ function MorseCodeHeaderContent() {
             Your name spelled in morse code!
             </Typography>
             <Typography variant="h6" gutterBottom>
-            And a video created for you!
+            (And a video created just you)
             </Typography>
         </Box>
     )

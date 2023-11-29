@@ -38,29 +38,35 @@ export function TemporaryDrawer() {
         >
             <List>
                 <ListItem key={"Home"} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <HomeRoundedIcon color="primary" fontSize="large" />
-                        </ListItemIcon>
-                        <a href="/" className='drawerLink'><ListItemText primary={"Home"} /></a>
-                    </ListItemButton>
+                    <a href="/" className='drawerLink'>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <HomeRoundedIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            <ListItemText primary={"Home"} />
+                        </ListItemButton>
+                    </a>
                 </ListItem>
-                <ListItem key={"About"} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <InfoRoundedIcon color="primary" fontSize="large" />
-                        </ListItemIcon>
-                        <a href="/about" className='drawerLink'><ListItemText primary={"About"} /></a>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem key={"Contact"} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <MailIcon color="primary" fontSize="large" />
-                        </ListItemIcon>
-                        <a href="/contact" className='drawerLink'><ListItemText primary={"Contact"} /></a>
-                    </ListItemButton>
-                </ListItem>
+                <a href="/about" className='drawerLink'>
+                    <ListItem key={"About"} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <InfoRoundedIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            <ListItemText primary={"About"} />
+                        </ListItemButton>
+                    </ListItem>
+                </a>
+                <a href="/contact" className='drawerLink'>
+                    <ListItem key={"Contact"} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <MailIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            <ListItemText primary={"Contact"} />
+                        </ListItemButton>
+                    </ListItem>
+                </a>
             </List>
             <Divider />
             {/* <List>
@@ -75,7 +81,7 @@ export function TemporaryDrawer() {
                     </ListItem>
                 ))}
             </List> */}
-        </Box>
+        </Box >
     );
 
     return (
