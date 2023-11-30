@@ -14,7 +14,7 @@ export const X = () => {
         <Fragment>
             <XHeader data={location.state.data} />
             <XBody data={location.state.data} />
-            <ButtonsMenu page="Result" />
+            {/* <ButtonsMenu page="Result" /> */}
         </Fragment>
     )
 };

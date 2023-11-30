@@ -41,7 +41,7 @@ function SpreadsheetBodyContent({ data }) {
     function navigateToVideo() {
         let updatedData = { ...data };
         updatedData.tweet = userData.tweet;
-        updatedData.tweetSnapshot = userData.tweetSnapshot;
+        updatedData.tweetQrFile = userData.tweetQrFile;
 
         navigate(`/morse`, {
             state: {

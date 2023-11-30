@@ -49,7 +49,7 @@ function ResultBodyContent({ data }) {
     }
     return (
         <Fragment>
-            <Box>
+            <Box width={"80%"}>
                 <Card>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

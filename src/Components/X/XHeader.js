@@ -8,7 +8,7 @@ function XHeaderContent({ data }) {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-                Your X/Twitter greeting, {data.name}!
+                Your Twitter/X greeting, {data.name}!
             </Typography>
         </Box>
     )

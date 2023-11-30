@@ -38,12 +38,12 @@ function XBodyContent({ data }) {
     async function fetchUserData() {
         let theData = {};
 
-        if (!data.tweet || !data.tweetSnapshot) {
+        if (!data.tweet || !data.tweetQrFile) {
             let counter = 0;
             theData.tweet = false;
-            theData.tweetSnapshot = false;
+            theData.tweetQrFile = false;
 
-            while (!theData.tweet && !theData.tweetSnapshot && counter < 5) {
+            while (!theData.tweet && !theData.tweetQrFile && counter < 5) {
                 theData = await doFetch();
                 await wait(5000);
                 counter++;
@@ -56,9 +56,9 @@ function XBodyContent({ data }) {
         setShowingBackdrop(false);
         setOpenSnackBar(true);
 
-        if (theData.tweetSnapshot) {
-            const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.tweetSnapshot;
-            document.getElementById('tweetSnapshot').src = imgUrl;
+        if (theData.tweetQrFile) {
+            const imgUrl = process.env.REACT_APP_BACKEND_SERVER + "/images/" + theData.tweetQrFile;
+            document.getElementById('tweetQrFile').src = imgUrl;
             document.getElementById('tweetUrl').href = theData.tweet;
         }
         else {
@@ -93,7 +93,7 @@ function XBodyContent({ data }) {
     return (
         <div>
             <a id="tweetUrl" target="_blank">
-                <img id="tweetSnapshot" />
+                <img id="tweetQrFile" width="400"/>
             </a>
             {tweetErrorAlert ? <MyAlert severity="error" message={tweetErrorMessage} /> : ""}
             <Backdrop
@@ -104,7 +104,7 @@ function XBodyContent({ data }) {
             </Backdrop>
             <Snackbar open={openSnackBar} anchorOrigin={{ vertical, horizontal }} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="primary" sx={{ width: '100%' }}>
-                    Click on the tweet image!
+                    Scan or click on the QR code!
                 </Alert>
             </Snackbar>
         </div>
