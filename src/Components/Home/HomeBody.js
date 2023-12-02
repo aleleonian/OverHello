@@ -91,7 +91,7 @@ function HomeBodyContent() {
 
         <Fragment>
             <FormControl>
-                <Box width={350}>
+                <Box className="homeForm">
                     <TextField style={{ height }} onChange={handleTextInputChange} fullWidth rows={30} id="userName" size="big" label="Enter your first name" variant="outlined" />
                 </Box>
                 <Button variant="contained" onClick={processInput}>submit</Button>

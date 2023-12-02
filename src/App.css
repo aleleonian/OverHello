@@ -62,6 +62,27 @@ html {
   height: 30vh;
 } */
 
+.homeForm {
+  padding-top: 10vh;
+  width: 30vw;
+}
 #spreadSheetSnapshot {
   padding-top: 20px;
+}
+
+.aboutImg {
+  width: 50px;
+  vertical-align: middle;
+}
+.contactImg {
+  width: 50px;
+  vertical-align: middle;
+}
+.contactUl{
+  padding:0;
+}
+
+.aboutLi {
+  list-style: none;
+  margin: 20px;
 }
