@@ -8,6 +8,7 @@ import { About } from "./pages/About";
 import { Result } from "./pages/Result";
 import { MorseCode } from "./pages/MorseCode";
 import { Spreadsheet } from './pages/Spreadsheet';
+import { TheEnd } from './pages/TheEnd';
 
 import { X } from './pages/X';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="morse" element={<MorseCode />} />
           <Route path="spreadsheet" element={<Spreadsheet />} />
           <Route path="x" element={<X />} />
+          <Route path="theend" element={<TheEnd />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
     </BrowserRouter>

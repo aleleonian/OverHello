@@ -3,22 +3,22 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Header } from '../Header';
 
-function MorseCodeHeaderContent() {
+function TheEndHeaderContent() {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-            Your name spelled in morse code!
+                This is the end...
             </Typography>
             <Typography variant="h6" gutterBottom>
-            (And a video created just for you)
+                My only friend, the end.
             </Typography>
         </Box>
     )
 }
-export function MorseCodeHeader() {
+export function TheEndHeader() {
     return (
         <Header>
-            <MorseCodeHeaderContent />
+            <TheEndHeaderContent />
         </Header>
     )
 }

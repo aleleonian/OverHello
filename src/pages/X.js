@@ -10,12 +10,12 @@ export const X = () => {
 
     // console.log("data received from previous page:", location.state.data);
     let data = location.state.data;
+    data.next = "/theend";
     return (
         <Fragment>
-            <ButtonsMenu />
+            <ButtonsMenu data={data}/>
             <XHeader data={data} />
             <XBody data={data} />
-            {/* <ButtonsMenu page="Result" /> */}
         </Fragment>
     )
 };
