@@ -8,11 +8,13 @@ import { Fragment } from 'react';
 export const MorseCode = () => {
 
     const location = useLocation();
-
+    let data = location.state.data;
+    data.next = "/x";
     return (
         <Fragment>
+            <ButtonsMenu data={data} />
             <MorseCodeHeader />
-            <MorseCodeBody data={location.state.data} />
+            <MorseCodeBody data={data} />
         </Fragment>
     )
 };

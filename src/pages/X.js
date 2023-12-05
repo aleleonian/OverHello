@@ -9,11 +9,12 @@ export const X = () => {
     const location = useLocation();
 
     // console.log("data received from previous page:", location.state.data);
-
+    let data = location.state.data;
     return (
         <Fragment>
-            <XHeader data={location.state.data} />
-            <XBody data={location.state.data} />
+            <ButtonsMenu />
+            <XHeader data={data} />
+            <XBody data={data} />
             {/* <ButtonsMenu page="Result" /> */}
         </Fragment>
     )

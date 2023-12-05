@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 export const Contact = () => {
     return (
         <Fragment>
+            <ButtonsMenu />
             <ContactHeader />
             <ContactBody />
         </Fragment>

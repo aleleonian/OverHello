@@ -6,6 +6,7 @@ import { ButtonsMenu } from '../Components/ButtonsMenu';
 export const Home = () => {
     return (
         <Fragment>
+            <ButtonsMenu />
             <HomeHeader />
             <HomeBody />
         </Fragment>

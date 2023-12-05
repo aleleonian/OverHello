@@ -10,10 +10,14 @@ export const Spreadsheet = () => {
 
     console.log("data received from previous page:", location.state.data);
 
+    let data = location.state.data;
+    data.next = "/morse";
+
     return (
         <Fragment>
-            <SpreadsheetHeader data={location.state.data} />
-            <SpreadsheetBody data={location.state.data} />
+            <ButtonsMenu data={data} />
+            <SpreadsheetHeader data={data} />
+            <SpreadsheetBody data={data} />
         </Fragment>
     )
 };

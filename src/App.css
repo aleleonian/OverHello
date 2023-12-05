@@ -86,3 +86,7 @@ html {
   list-style: none;
   margin: 20px;
 }
+.topMenu button{
+  margin-left: 250px;
+  margin-right: 250px;
+}

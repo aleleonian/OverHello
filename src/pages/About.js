@@ -7,6 +7,7 @@ export const About = () => {
     return (
         // <div className='App-About'>
         <Fragment>
+            <ButtonsMenu />
             <AboutHeader />
             <AboutBody />
         </Fragment>

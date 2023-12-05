@@ -12,6 +12,7 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 export function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -69,18 +70,6 @@ export function TemporaryDrawer() {
                 </a>
             </List>
             <Divider />
-            {/* <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List> */}
         </Box >
     );
 
@@ -88,7 +77,7 @@ export function TemporaryDrawer() {
         <div>
             {[{ name: 'menu', from: 'left' }].map((anchor) => (
                 <React.Fragment key={anchor.name}>
-                    <Button onClick={toggleDrawer(anchor.from, true)}><MenuIcon fontSize="large" /></Button>
+                    <Button onClick={toggleDrawer(anchor.from, true)}><MenuBookIcon fontSize="large" /></Button>
                     <Drawer
                         anchor={anchor.from}
                         open={state[anchor.from]}

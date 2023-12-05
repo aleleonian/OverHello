@@ -6,31 +6,59 @@ import { useNavigate } from "react-router-dom";
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import CallIcon from '@mui/icons-material/Call';
+// import RestoreIcon from '@mui/icons-material/Restore';
+import ForwardIcon from '@mui/icons-material/Forward';
+import { TemporaryDrawer } from './Sidebar/TemporaryDrawer';
 
-export function ButtonsMenu({ page }) {
-    const [value, setValue] = React.useState(0);
+export function ButtonsMenu({ data = null }) {
     const navigate = useNavigate();
-    function handleChange(event, newValue) {
-        setValue(newValue);
-        navigate(`/${newValue}`);
 
-    }
     return (
-        <div className='appMenu menuComponent'>
-            <Box sx={{ width: 500 }}>
+        <div className='topMenu'>
+            <Box>
                 <BottomNavigation
                     showLabels
-                    value={value}
-                    onChange={handleChange}
                 >
-                    <BottomNavigationAction label="Home" value="" icon={<HomeIcon fontSize="large" color={page === "Home" ? "primary" : ""} />} />
-                    <BottomNavigationAction label="About" value="about" icon={<InfoIcon fontSize="large" color={page === "About" ? "primary" : ""} />} />
-                    <BottomNavigationAction label="Contact" value="contact" icon={<CallIcon fontSize="large" color={page === "Contact" ? "primary" : ""} />} />
+                    {/* <BottomNavigationAction onClick={() => navigate(-1)} label="Back" icon={<RestoreIcon />} /> */}
+                    <TemporaryDrawer />
+                    {
+                        data && data.next ?
+                            <BottomNavigationAction label={data.next} onClick={() => {
+                                navigate(data.next, {
+                                    state: {
+                                        data: data,
+                                    }
+                                });
+                            }} value={data.next} icon={<ForwardIcon sx={{ fontSize: 40 }} color='primary' />} />
+                            : ""
+                    }
+
                 </BottomNavigation>
             </Box>
         </div>
     );
 }
+
+
+// export function Header({ children }) {
+//     const [value, setValue] = React.useState(0);
+
+//     return (
+//         <div className="appHeader">
+//             <Box className="headerButtons">
+//                 <BottomNavigation
+//                     showLabels
+//                     value={value}
+//                     onChange={(event, newValue) => {
+//                         setValue(newValue);
+//                     }}
+//                 >
+//                     <BottomNavigationAction label="Back" icon={<RestoreIcon />} className='backButton' />
+//                     {children}
+//                     <BottomNavigationAction label="Spreadsheet" icon={<ForwardIcon />} />
+//                 </BottomNavigation>
+//             </Box>
+//             {children}
+//         </div>
+//     );
+// }
