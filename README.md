@@ -16,7 +16,13 @@ When you input your name, this is what will happen:
 * That's it.
 
 ## Code
-This app was built in React. The backend was written in Node.js / Express and MongoDB. The Twitter Bot was written in Node.js and Docker.
+This app was built in React and uploaded to Heroku. The backend was written in Node.js / Express and MongoDB. The Twitter Bot was written in Node.js and Docker.
+
+You can use it live at:
+
+https://overhello-frontend-0d0f00dd7856.herokuapp.com/
+
+### Source:
 
 * https://github.com/aleleonian/OverHello-frontend
 * https://github.com/aleleonian/OverHello-backend
