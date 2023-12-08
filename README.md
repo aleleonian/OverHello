@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# OverHello
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a silly app that I codes when I was laid off and had nothing to do.
 
-## Available Scripts
+### What is it about
 
-In the project directory, you can run:
+The app represents a complicated way to say Hello <YOUR_NAME>.
+When you input your name, this is what will happen:
+* The app will scrape data about your name from behindthename.com and will display it to you.
+* If there's enough information, the app will:
+    * Create a google drive spreadsheet with international equivalents of your name
+    * Take a snapshot (a picture) of this spreadsheet to show it to you.
+* Then the app will translate your name to morse code and will create a little video on the fly showing how your name spells in morse
+* Finally the app will get in touch with a Twitter Bot (that I also coded) which runs in a Docker container (Just to make things more complicated) that does NOT use the Twitter API and will tweet a random hello to you.
+* The app will also generate a QR code that links to the aforementioned tweet.
+* That's it.
 
-### `npm start`
+## Code
+This app was built in React. The backend was written in Node.js / Express and MongoDB. The Twitter Bot was written in Node.js and Docker.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* https://github.com/aleleonian/OverHello-frontend
+* https://github.com/aleleonian/OverHello-backend
+* https://github.com/aleleonian/OverHello-xBot
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Environment Variables
 
-### `npm test`
+You must set one env var, otherwise the app won't run properly.
+### `REACT_APP_BACKEND_SERVER` 
+must be set and pointing to the backend for this frontend app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
